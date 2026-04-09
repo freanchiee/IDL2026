@@ -1,1 +1,80 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>MYP IDL May 2026 Practice Module</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-sans)}[rest of the CSS and HTML as provided]</style></head><body><div class="app">[rest of HTML structure as provided]<script>[JavaScript code as provided]</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Learning Module</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header { background: #4CAF50; color: white; padding: 10px; text-align: center; }
+        .badge { display: inline-block; background: #f1c40f; padding: 5px; margin: 2px; }
+        .progress { width: 100%; background: #ddd; }
+        .progress-bar { height: 20px; background: #4CAF50; width: 0%; }
+        .tabs { display: flex; }
+        .tab { padding: 10px; cursor: pointer; background: #f1f1f1; }
+        .active { background: #ccc; }
+        .section { display: none; }
+        .section.active { display: block; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Self Learning Module</h1>
+        <div class="badges">
+            <span class="badge">Badge 1</span>
+            <span class="badge">Badge 2</span>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" style="width: 50%;"></div>
+        </div>
+    </header>
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('prm')">PRM</div>
+        <div class="tab" onclick="openTab('vocab')">Vocabulary</div>
+        <div class="tab" onclick="openTab('practice')">Practice</div>
+        <div class="tab" onclick="openTab('exemplars')">Exemplars</div>
+        <div class="tab" onclick="openTab('markscheme')">Mark Scheme</div>
+    </div>
+    <div class="sections">
+        <div id="prm" class="section active">
+            <textarea placeholder="Enter PRM..."></textarea>
+        </div>
+        <div id="vocab" class="section">
+            <textarea placeholder="Enter Vocabulary..."></textarea>
+        </div>
+        <div id="practice" class="section">
+            <div>Set A Questions</div>
+            <textarea placeholder="Set A Question..."></textarea>
+            <div>Set B Questions</div>
+            <textarea placeholder="Set B Question..."></textarea>
+        </div>
+        <div id="exemplars" class="section">
+            <textarea placeholder="Exemplar with Grade Comparisons..."></textarea>
+        </div>
+        <div id="markscheme" class="section">
+            <textarea placeholder="Mark Scheme..."></textarea>
+        </div>
+    </div>
+    <button onclick="submitModule()">Submit</button>
+    <script>
+        function openTab(tabName) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.tab[onclick*='${tabName}']`).classList.add('active');
+        }
+
+        function submitModule() {
+            // Implementation of submit action
+            alert('Module submitted!');
+        }
+    </script>
+</body>
+</html>
